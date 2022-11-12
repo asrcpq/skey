@@ -16,7 +16,13 @@ impl WinitConversion for Skey {
 			Wk::Left => SkType::Direction(0),
 			Wk::Up => SkType::Direction(1),
 			Wk::Right => SkType::Direction(2),
-			Wk::Down => SkType::Direction(2),
+			Wk::Down => SkType::Direction(3),
+			Wk::Insert => SkType::Direction(4),
+			Wk::Delete => SkType::Direction(5),
+			Wk::PageUp => SkType::Direction(6),
+			Wk::PageDown => SkType::Direction(7),
+			Wk::Home => SkType::Direction(8),
+			Wk::End => SkType::Direction(9),
 			_ => return None
 		};
 		Some(Skey {
