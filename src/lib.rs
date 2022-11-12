@@ -21,6 +21,7 @@ pub enum SkType {
 	Modifier(u8),
 }
 
+#[derive(Clone, Copy, Debug)]
 pub struct Skey {
 	pub down: bool,
 	pub ty: SkType,
