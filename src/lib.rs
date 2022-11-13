@@ -16,7 +16,7 @@ pub enum SkType {
 	// + - * /
 	// numlck, enter
 	Numpad(u8),
-	// shift, ctrl, menu, alt
+	// shift, ctrl, logo, alt
 	// atw winit cannot distinguish left and right
 	Modifier(u8),
 }

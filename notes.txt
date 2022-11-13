@@ -1,1 +1,1 @@
-add more keys
+fix logo name

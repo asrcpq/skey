@@ -56,7 +56,7 @@ impl WinitModifier for ModifierTracker {
 				down: ms.ctrl(),
 			});
 		}
-		if self.menu ^ ms.logo() {
+		if self.logo ^ ms.logo() {
 			result.push(Skey {
 				ty: SkType::Modifier(2),
 				down: ms.logo(),

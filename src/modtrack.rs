@@ -4,7 +4,7 @@ use crate::{Skey, SkType};
 pub struct ModifierTracker {
 	pub shift: bool,
 	pub ctrl: bool,
-	pub menu: bool,
+	pub logo: bool,
 	pub alt: bool,
 }
 
@@ -13,7 +13,7 @@ impl ModifierTracker {
 		match skey.ty {
 			SkType::Modifier(0) => self.shift = skey.down,
 			SkType::Modifier(1) => self.ctrl = skey.down,
-			SkType::Modifier(2) => self.menu = skey.down,
+			SkType::Modifier(2) => self.logo = skey.down,
 			SkType::Modifier(3) => self.alt = skey.down,
 			_ => {},
 		}
