@@ -45,24 +45,28 @@ impl WinitModifier for ModifierTracker {
 	fn update_state(&mut self, ms: Wms) -> Vec<Skey> {
 		let mut result = Vec::new();
 		if self.shift ^ ms.shift() {
+			self.shift = ms.shift();
 			result.push(Skey {
 				ty: SkType::Modifier(0),
 				down: ms.shift(),
 			});
 		}
 		if self.ctrl ^ ms.ctrl() {
+			self.ctrl = ms.ctrl();
 			result.push(Skey {
 				ty: SkType::Modifier(1),
 				down: ms.ctrl(),
 			});
 		}
 		if self.logo ^ ms.logo() {
+			self.logo = ms.logo();
 			result.push(Skey {
 				ty: SkType::Modifier(2),
 				down: ms.logo(),
 			});
 		}
 		if self.alt ^ ms.alt() {
+			self.alt = ms.alt();
 			result.push(Skey {
 				ty: SkType::Modifier(3),
 				down: ms.alt(),

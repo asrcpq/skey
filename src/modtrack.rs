@@ -1,6 +1,6 @@
 use crate::{Skey, SkType};
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct ModifierTracker {
 	pub shift: bool,
 	pub ctrl: bool,
