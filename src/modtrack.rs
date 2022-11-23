@@ -1,4 +1,4 @@
-use crate::{Skey, SkType};
+use crate::{Skey, Sktype};
 
 #[derive(Default, Debug)]
 pub struct ModifierTracker {
@@ -11,10 +11,10 @@ pub struct ModifierTracker {
 impl ModifierTracker {
 	pub fn update_skey(&mut self, skey: Skey) {
 		match skey.ty {
-			SkType::Modifier(0) => self.shift = skey.down,
-			SkType::Modifier(1) => self.ctrl = skey.down,
-			SkType::Modifier(2) => self.logo = skey.down,
-			SkType::Modifier(3) => self.alt = skey.down,
+			Sktype::Modifier(0) => self.shift = skey.down,
+			Sktype::Modifier(1) => self.ctrl = skey.down,
+			Sktype::Modifier(2) => self.logo = skey.down,
+			Sktype::Modifier(3) => self.alt = skey.down,
 			_ => {},
 		}
 	}

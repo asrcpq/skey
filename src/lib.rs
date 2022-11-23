@@ -1,5 +1,5 @@
-#[derive(Clone, Copy, Debug)]
-pub enum SkType {
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Sktype {
 	// printable ascii(including space)
 	Ascii(u8),
 	// esc, tab, bs, enter, menu
@@ -24,32 +24,32 @@ pub enum SkType {
 #[derive(Clone, Copy, Debug)]
 pub struct Skey {
 	pub down: bool,
-	pub ty: SkType,
+	pub ty: Sktype,
 }
 
 impl Skey {
 	pub fn ser(self) -> [u8; 3] {
 		let d = self.down as u8;
 		match self.ty {
-			SkType::Ascii(x) => [d, 0, x],
-			SkType::Common(x) => [d, 1, x],
-			SkType::Direction(x) => [d, 2, x],
-			SkType::Func(x) => [d, 3, x],
-			SkType::System(x) => [d, 4, x],
-			SkType::Numpad(x) => [d, 5, x],
-			SkType::Modifier(x) => [d, 6, x],
+			Sktype::Ascii(x) => [d, 0, x],
+			Sktype::Common(x) => [d, 1, x],
+			Sktype::Direction(x) => [d, 2, x],
+			Sktype::Func(x) => [d, 3, x],
+			Sktype::System(x) => [d, 4, x],
+			Sktype::Numpad(x) => [d, 5, x],
+			Sktype::Modifier(x) => [d, 6, x],
 		}
 	}
 
 	pub fn des([down, b1, b2]: [u8; 3]) -> Option<Self>  {
 		let ty = match b1 {
-			0 => SkType::Ascii(b2),
-			1 => SkType::Common(b2),
-			2 => SkType::Direction(b2),
-			3 => SkType::Func(b2),
-			4 => SkType::System(b2),
-			5 => SkType::Numpad(b2),
-			6 => SkType::Modifier(b2),
+			0 => Sktype::Ascii(b2),
+			1 => Sktype::Common(b2),
+			2 => Sktype::Direction(b2),
+			3 => Sktype::Func(b2),
+			4 => Sktype::System(b2),
+			5 => Sktype::Numpad(b2),
+			6 => Sktype::Modifier(b2),
 			_ => return None,
 		};
 		Some(Self {
