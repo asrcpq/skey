@@ -1,6 +1,7 @@
-use winit::event::VirtualKeyCode as Wk;
-use winit::event::KeyboardInput as Wki;
-use winit::event::ModifiersState as Wms;
+use rust_stddep::winit::event::VirtualKeyCode as Wk;
+use rust_stddep::winit::event::KeyboardInput as Wki;
+use rust_stddep::winit::event::ModifiersState as Wms;
+use rust_stddep::winit::event::ElementState as Wes;
 
 use crate::{Skey, Sktype};
 use crate::modtrack::ModifierTracker;
@@ -88,7 +89,7 @@ impl WinitConversion for Skey {
 			_ => return None
 		};
 		Some(Skey {
-			down: wki.state == winit::event::ElementState::Pressed,
+			down: wki.state == Wes::Pressed,
 			ty,
 		})
 	}
